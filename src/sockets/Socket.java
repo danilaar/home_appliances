@@ -1,17 +1,17 @@
-package Sockets;
+package sockets;
 
-import HomeAppliance.HomeAppliance;
+import homeAppliance.HomeAppliance;
 
 public class Socket {
     private HomeAppliance applianceInSocket;
 
     public Socket() {}
 
-    public void TurnInSocket (HomeAppliance appliance) {
+    public void turnInSocket (HomeAppliance appliance) {
         this.applianceInSocket = appliance;
     }
 
-    public void TurnOutSocket () {
+    public void turnOutSocket () {
         this.applianceInSocket = null;
     }
 

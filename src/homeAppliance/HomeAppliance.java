@@ -1,4 +1,4 @@
-package HomeAppliance;
+package homeAppliance;
 public class HomeAppliance {
     private String name;
     private String room;
