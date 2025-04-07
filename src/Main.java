@@ -4,9 +4,13 @@ import sockets.Socket;
 import panel.*;
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 public class Main {
+
+    private static final Logger logger = Logger.getLogger(Main.class.getName());
     public static void main(String[] args) {
+
 
         ArrayList<HomeAppliance> appliances = new ArrayList<>();
 
@@ -29,7 +33,7 @@ public class Main {
         sockets.get(1).turnInSocket(appliances.get(3));
         sockets.get(2).turnInSocket(appliances.get(2));
 
-        System.out.println("Total power: " + service.calculateTotalPower(sockets));
+        logger.info("Total power: " + service.calculateTotalPower(sockets));
 
         System.out.println(sockets.get(0).getAppliance());
         System.out.println(sockets.get(1).getAppliance());
