@@ -46,7 +46,7 @@ public class Main {
         sockets.get(1).turnInSocket(appliances.get(3));
         sockets.get(2).turnInSocket(appliances.get(2));
 
-        logger.info("Total power: " + service.calculateTotalPower(sockets));
+        logger.info("TOTAL POWER: " + service.calculateTotalPower(sockets));
 
         logger.info(""+sockets.get(0).getAppliance());
         logger.info(""+sockets.get(1).getAppliance());
