@@ -1,4 +1,4 @@
-package HomeAppliance;
+package homeAppliance;
 
 public class Fridge extends HomeAppliance{
     public Fridge(String name, String room, int power) {

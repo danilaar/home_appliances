@@ -1,4 +1,4 @@
-package HomeAppliance;
+package homeAppliance;
 
 public class Laptop extends HomeAppliance{
     public Laptop(String name, String room, int power) {

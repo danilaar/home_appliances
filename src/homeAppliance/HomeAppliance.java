@@ -1,4 +1,4 @@
-package HomeAppliance;
+package homeAppliance;
 public class HomeAppliance {
     private String name;
     private String room;
@@ -22,5 +22,9 @@ public class HomeAppliance {
 
     public int getPower() {
         return power;
+    }
+
+    public void doWork() {
+        System.out.println("Бздыщь");
     }
 }

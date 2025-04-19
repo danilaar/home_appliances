@@ -1,4 +1,4 @@
-package HomeAppliance;
+package homeAppliance;
 
 public class Microwave extends HomeAppliance{
     public Microwave(String name, String room, int power) {
