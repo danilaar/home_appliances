@@ -14,5 +14,24 @@ public class ElectricPanel {
 
     public ElectricPanel() {}
 
+    public void turnOn() {
+        if (sockets.get(0).getIsTurning()) {
+            System.out.println("The panel is already working!");
+        }
+        else {
+            for (int i=0; i < sockets.size(); i++) {
+                sockets.get(i).setIsTurning(true);
+            }
+        }
+    }
 
+    public void turnOff() {
+        if (!sockets.get(0).getIsTurning()) {
+            System.out.println("The panel is already killed!");
+        } else {
+            for (int i = 0; i < sockets.size(); i++) {
+                sockets.get(i).setIsTurning(false);
+            }
+        }
+    }
 }

@@ -1,10 +1,10 @@
 import homeAppliance.*;
 import service.ApplianceService;
+import service.LoggerEdit;
 import sockets.Socket;
 import panel.*;
 
 import java.util.ArrayList;
-import java.util.logging.Logger;
 import java.util.logging.*;
 
 public class Main {
@@ -12,18 +12,7 @@ public class Main {
     private static final Logger logger = Logger.getLogger(Main.class.getName());
     public static void main(String[] args) {
 
-        for (Handler handler : Logger.getLogger("").getHandlers()) {
-            handler.setFormatter(new Formatter() {
-                @Override
-                public String format(LogRecord record) {
-                    return String.format("[%1$tT] [%2$s] %3$s%n",
-                            record.getMillis(),
-                            record.getLevel().getName(),
-                            record.getMessage());
-                }
-            });
-        }
-
+        LoggerEdit.LoggerRed(logger);
 
         ArrayList<HomeAppliance> appliances = new ArrayList<>();
 
@@ -42,22 +31,30 @@ public class Main {
         ElectricPanel panel = new ElectricPanel(sockets);
         ApplianceService service = new ApplianceService();
 
+        panel.turnOn();
+
         sockets.get(0).turnInSocket(appliances.get(0));
         sockets.get(1).turnInSocket(appliances.get(3));
         sockets.get(2).turnInSocket(appliances.get(2));
 
-        logger.info("TOTAL POWER: " + service.calculateTotalPower(sockets));
+        logger.info("TOTAL POWER: " + service.calculateTotalPower(sockets, panel));
 
-        logger.info(""+sockets.get(0).getAppliance());
-        logger.info(""+sockets.get(1).getAppliance());
-        logger.info(""+sockets.get(2).getAppliance());
+        logger.info(sockets.get(0).getAppliance().toString());
+        logger.info(sockets.get(1).getAppliance().toString());
+        logger.info(sockets.get(2).getAppliance().toString());
 
         service.sortPower(sockets);
 
         logger.info("\n"+sockets.get(0).getAppliance());
-        logger.info(""+sockets.get(1).getAppliance());
-        logger.info(""+sockets.get(2).getAppliance()+"\n");
+        logger.info(sockets.get(1).getAppliance().toString());
+        logger.info(sockets.get(2).getAppliance()+"\n");
 
-        logger.info(""+service.findAppliance(sockets, "Кухня", 100, 1050));
+        panel.turnOff();
+
+        logger.info(service.findAppliance(sockets, "Кухня", 100, 1050).toString());
+
+        sockets.get(0).getAppliance().doWork();
+
+
     }
 }

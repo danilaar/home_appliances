@@ -4,6 +4,7 @@ import homeAppliance.HomeAppliance;
 
 public class Socket {
     private HomeAppliance applianceInSocket;
+    private boolean isTurning;
 
     public Socket() {}
 
@@ -17,5 +18,13 @@ public class Socket {
 
     public HomeAppliance getAppliance () {
         return applianceInSocket;
+    }
+
+    public boolean getIsTurning() {
+        return isTurning;
+    }
+
+    public void setIsTurning(boolean isTurning) {
+        this.isTurning = isTurning;
     }
 }

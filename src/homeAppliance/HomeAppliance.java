@@ -23,4 +23,8 @@ public class HomeAppliance {
     public int getPower() {
         return power;
     }
+
+    public void doWork() {
+        System.out.println("Бздыщь");
+    }
 }
